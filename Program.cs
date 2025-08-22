@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PersonalDashBoard.Api.Data;
+using PersonalDashBoard.Api.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<PasswordService>();
 
 // Register Entity Framework DbContext - SQLite for development, PostgreSQL for production
 if (builder.Environment.IsDevelopment())
