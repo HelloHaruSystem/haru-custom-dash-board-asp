@@ -4,6 +4,9 @@ using PersonalDashBoard.Api.Models;
 
 namespace PersonalDashBoard.Api.Services;
 
+/// <summary>
+/// Service responsible for handling authentication including user registration and validation
+/// </summary>
 public class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepository;
@@ -11,6 +14,13 @@ public class AuthService : IAuthService
     private readonly IConfiguration _configuration;
     private readonly ILogger<AuthService> _logger;
 
+    /// <summary>
+    /// Initializes a new instance of the AuthService
+    /// </summary>
+    /// <param name="userRepository">Repository for user data</param>
+    /// <param name="passwordService">Service for password hashing and verification</param>
+    /// <param name="configuration">Application configurations needed for authentication settings</param>
+    /// <param name="logger">Logger for authentication events and errors</param>
     public AuthService(IUserRepository userRepository, PasswordService passwordService,
         IConfiguration configuration, ILogger<AuthService> logger)
     {
@@ -20,6 +30,14 @@ public class AuthService : IAuthService
         _logger = logger;
     }
 
+    /// <summary>
+    /// Register a new user in the system after validation the master secret and checking for duplicate username or password
+    /// </summary>
+    /// <param name="request">User registration request containing username, email, password and master secret</param>
+    /// <returns>A response indication successful registration with the created user</returns>
+    /// <exception cref="UnauthorizedAccessException">Thrown when master secret is invalid or missing</exception>
+    /// <exception cref="InvalidOperationException">Thrown when username or email already exists in the system</exception>
+    /// <exception cref="Exception">Thrown for any unexpected errors during registration</exception>
     public async Task<RegisterUserResponse> RegisterUserAsync(RegisterUserRequest request)
     {
         try

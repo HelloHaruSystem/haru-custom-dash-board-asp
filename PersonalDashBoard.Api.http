@@ -1,6 +1,15 @@
-@PersonalDashBoard.Api_HostAddress = http://localhost:5154
+@PersonalDashBoard.Api_HostAddress = https://localhost:7020
+@MasterSecret = your-super-secret-key-here
 
-GET {{PersonalDashBoard.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### Register New User
+POST {{PersonalDashBoard.Api_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "SecurePass123!",
+  "masterSecret": "{{MasterSecret}}"
+}
 
 ###
