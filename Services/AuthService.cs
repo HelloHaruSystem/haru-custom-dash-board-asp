@@ -63,7 +63,6 @@ public class AuthService : IAuthService
             return new RegisterUserResponse
             {
                 Message = "User registered successfully",
-                UserId = createdUser.Id,
                 UserName = createdUser.Username,
             };
         }

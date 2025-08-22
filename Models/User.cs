@@ -16,16 +16,18 @@ public class User
     [Required]
     [MaxLength(50)]
     [Column("username")]
-    public string Username { get; set; }
+    public string Username { get; set; } = string.Empty;
     
     [Required]
     [EmailAddress]
+    [MaxLength(320)]  // RFC 5321 standard max email length
     [Column("email")]
-    public string Email { get; set; }
+    public string Email { get; set; } = string.Empty;
     
     [Required]
+    [MaxLength(500)]  // room for hashed passwords
     [Column("password_hash")]
-    public string PasswordHash { get; set; }
+    public string PasswordHash { get; set; } = string.Empty;
 
     [Required]
     [Column("created_at")]

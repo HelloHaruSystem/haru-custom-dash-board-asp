@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PersonalDashBoard.Api.DTOs;
 
-public record RegisterUserRequest()
+public record RegisterUserRequest
 {
     private const int UsernameMaxLength = 50;
     private const int UsernameMinLength = 3;

@@ -15,13 +15,5 @@ public class DashboardDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<LoginAttempt> LoginAttempts { get; set; }
     
-    // on model creating
-    // this runs when entity framework is building the model for your database
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        // always call base first - base configs are applied
-        base.OnModelCreating(modelBuilder);
-        
-        // All indexes are now defined using [Index] attributes on the models
-    }
+    // on model creating goes here if needed
 }

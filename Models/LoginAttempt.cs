@@ -15,12 +15,14 @@ public class LoginAttempt
     public int Id { get; set; }
     
     [Required]
+    [MaxLength(45)]  // IPv6 max length
     [Column("ip_address")]
-    public string IpAddress { get; set; }
+    public string IpAddress { get; set; } = string.Empty;
     
     [Required]
+    [MaxLength(50)]  // Match User.Username length
     [Column("username")]
-    public string Username { get; set; }
+    public string Username { get; set; } = string.Empty;
     
     [Required]
     [Column("is_successful")]
@@ -30,7 +32,7 @@ public class LoginAttempt
     [Column("attempted_at")]
     public DateTime LoginAttemptAt { get; set; } = DateTime.UtcNow;
     
-    // could be operating system
+    [MaxLength(512)]  // Standard User-Agent header max length
     [Column("user_agent")]
-    public string? UserAgent { get; set; }
+    public string UserAgent { get; set; } = string.Empty;
 }
