@@ -33,7 +33,20 @@ cd PersonalDashBoard.Api
 dotnet restore
 ```
 
-2. **Setup development database:**
+2. **Configure application settings:**
+Create or update your `appsettings.json`file:
+```json
+{
+  "Authentication": {
+    "MasterSecret": "your-super-secret-key-here"
+  },
+  "ConnectionStrings": {
+    "DevelopmentConnection": "Data Source=./Database/dashboard.db"
+  }
+}
+```
+
+3. **Setup development database:**
 ```bash
 # Create initial migration
 dotnet ef migrations add InitialCreate
@@ -42,7 +55,7 @@ dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
-3. **Run the application:**
+4. **Run the application:**
 ```bash
 dotnet run
 ```
@@ -51,6 +64,10 @@ dotnet run
 
 - **Development**: Uses SQLite database stored in `./Database/dashboard.db`
 - **Production**: Configured for PostgreSQL (connection string in appsettings.Production.json)
+
+## Configuration
+
+- **MasterSecret**: Required for user registration. Change this to your own secret key.
 
 ## Features (Planned)
 

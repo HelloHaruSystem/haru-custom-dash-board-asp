@@ -30,4 +30,8 @@ public class User
     [Required]
     [Column("created_at")]
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    
+    [Required]
+    [Column("is_admin")]
+    public bool IsAdmin { get; set; } = false;
 }

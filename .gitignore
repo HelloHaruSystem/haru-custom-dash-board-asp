@@ -1,15 +1,18 @@
 # Build output
 bin/
 obj/
+*.user
 
 # IDE files
 .idea/
 *.DotSettings.user
 .vs/
+*.suo
 
 # Configuration files (may contain secrets)
 appsettings.json
 appsettings.Development.json
+appsettings.*.json
 
 # Database files
 *.db
