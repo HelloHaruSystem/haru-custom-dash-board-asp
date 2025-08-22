@@ -1,0 +1,16 @@
+# Build output
+bin/
+obj/
+
+# IDE files
+.idea/
+.vs/
+
+# Configuration files (may contain secrets)
+appsettings.json
+appsettings.Development.json
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
