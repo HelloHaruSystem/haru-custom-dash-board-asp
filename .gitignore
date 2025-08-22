@@ -4,6 +4,7 @@ obj/
 
 # IDE files
 .idea/
+*.DotSettings.user
 .vs/
 
 # Configuration files (may contain secrets)
